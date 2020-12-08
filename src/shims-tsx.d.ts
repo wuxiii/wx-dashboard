@@ -1,3 +1,4 @@
+// 对jsx的补充声明
 import Vue, { VNode } from 'vue'
 
 declare global {

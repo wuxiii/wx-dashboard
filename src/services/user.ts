@@ -23,7 +23,7 @@ export const login = (data: User) => {
   })
 }
 
-export const getUserInfo = () => {
+export const fetchUserInfo = () => {
   return request({
     method: 'GET',
     url: '/front/user/getInfo'

@@ -1,7 +1,7 @@
 <template>
-  <el-aside class="aside" width="200px">
+  <el-aside class="aside" width='auto'>
     <el-menu
-      :default-active="defaultActiveIndex"
+      default-active="/role"
       class="el-menu-vertical-demo"
       @open="handleOpen"
       @close="handleClose"
@@ -9,6 +9,7 @@
       text-color="#fff"
       active-text-color="#ffd04b"
       router
+      :collapse="$store.state.isCollapse"
     >
       <el-submenu index="1">
         <template slot="title">
@@ -48,6 +49,12 @@ import Vue from 'vue'
 
 export default Vue.extend({
   name: 'AppSiderbar',
+  props: {
+    collapse: {
+      type: Boolean,
+      default: false
+    }
+  },
   data () {
     return {
       defaultActiveIndex: this.$route.fullPath
@@ -63,5 +70,9 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .aside{
   background-color: #545c64;
+
+  overflow: hidden;
+  height: 100vh;
+
 }
 </style>

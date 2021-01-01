@@ -1,6 +1,6 @@
 <template>
   <el-container class="wrapper">
-    <app-sidebar />
+    <app-sidebar/>
     <el-container direction="vertical">
       <app-header/>
       <el-main>
@@ -17,7 +17,17 @@ import AppSidebar from './sider.vue'
 import AppHeader from './header.vue'
 export default Vue.extend({
   name: 'LayoutIndex',
-  components: { AppSidebar, AppHeader }
+  components: { AppSidebar, AppHeader },
+  data () {
+    return {
+      collapse: false
+    }
+  }
+  // methods: {
+  //   handleCollapse: function () {
+  //     this.collapse = !this.collapse
+  //   }
+  // }
 
 })
 </script>

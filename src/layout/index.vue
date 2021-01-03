@@ -23,18 +23,13 @@ export default Vue.extend({
       collapse: false
     }
   }
-  // methods: {
-  //   handleCollapse: function () {
-  //     this.collapse = !this.collapse
-  //   }
-  // }
 
 })
 </script>
 
 <style>
 .el-container{
-    min-height: 100vh;
+    height: 100vh;
     min-width: 1000px;
   }
 </style>

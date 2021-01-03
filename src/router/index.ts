@@ -25,10 +25,33 @@ const routes: Array<RouteConfig> = [
         meta: { title: '首页' }
       },
       {
-        path: '/role',
+        path: 'role',
         name: 'Role',
         component: () => import(/* webpackChunkName: 'role' */ '@/views/role/index.vue'),
-        meta: { title: '角色管理' }
+        meta: { title: '角色管理' },
+        children: [
+          {
+            path: '',
+            name: 'role',
+            component: () => import(/* webpackChunkName: 'alloc-menu' */ '@/views/role/RoleList.vue'),
+            props: true, // 将路由路径参数映射到组件的 props 数据中
+            meta: { title: '角色列表' }
+          },
+          {
+            path: ':roleId/alloc-menu',
+            name: 'alloc-menu',
+            component: () => import(/* webpackChunkName: 'alloc-menu' */ '@/views/role/alloc-menu.vue'),
+            props: true, // 将路由路径参数映射到组件的 props 数据中
+            meta: { title: '分配菜单' }
+          },
+          {
+            path: ':roleId/alloc-resource',
+            name: 'alloc-resource',
+            component: () => import(/* webpackChunkName: 'alloc-menu' */ '@/views/role/alloc-resource.vue'),
+            props: true, // 将路由路径参数映射到组件的 props 数据中
+            meta: { title: '分配资源' }
+          }
+        ]
       },
       {
         path: '/menu',
@@ -68,6 +91,7 @@ const routes: Array<RouteConfig> = [
         component: () => import(/* webpackChunkName: 'aadvert-space' */ '@/views/advert-space/index.vue'),
         meta: { title: '广告位管理' }
       }
+
     ]
   },
   {

@@ -1,28 +1,19 @@
 <template>
-<div>course</div>
+  <div class="course">
+    <course-list />
+  </div>
 </template>
 
-<script lang='ts'>
-import { fetchUserInfo } from '@/services/user'
+<script lang="ts">
 import Vue from 'vue'
+import CourseList from './components/CourseList.vue'
+
 export default Vue.extend({
   name: 'Course',
-  created () {
-    this.getUserInfo()
-  },
-  methods: {
-    async getUserInfo () {
-      const data = await fetchUserInfo()
-      console.log('======', data)
-    },
-    logout () {
-      this.$store.commit('setUser', null)
-      this.$router.push('Login')
-    }
+  components: {
+    CourseList
   }
 })
 </script>
 
-<style>
-
-</style>
+<style lang="scss" scoped></style>

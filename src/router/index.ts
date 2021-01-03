@@ -57,7 +57,29 @@ const routes: Array<RouteConfig> = [
         path: '/menu',
         name: 'Menu',
         component: () => import(/* webpackChunkName: 'menu' */ '@/views/menu/index.vue'),
-        meta: { title: '菜单管理' }
+        meta: { title: '菜单管理' },
+        children: [
+          {
+            path: '',
+            name: '',
+            component: () => import(/* webpackChunkName: 'menu-create-edit' */ '@/views/menu/menu.vue'),
+            meta: { title: '菜单管理' }
+
+          },
+          {
+            path: 'menu-create',
+            name: 'menu-create',
+            component: () => import(/* webpackChunkName: 'menu-create-edit' */ '@/views/menu/create.vue'),
+            meta: { title: '创建菜单' }
+
+          },
+          {
+            path: ':id/edit',
+            name: 'menu-edit',
+            component: () => import(/* webpackChunkName: 'menu-create-edit' */ '@/views/menu/edit.vue'),
+            meta: { title: '编辑菜单' }
+          }
+        ]
       },
       {
         path: '/resource',
@@ -70,6 +92,7 @@ const routes: Array<RouteConfig> = [
         name: 'Course',
         component: () => import(/* webpackChunkName: 'course' */ '@/views/course/index.vue'),
         meta: { title: '课程管理' }
+
       },
       {
         path: '/user',
@@ -90,6 +113,39 @@ const routes: Array<RouteConfig> = [
         name: 'Advert-space',
         component: () => import(/* webpackChunkName: 'aadvert-space' */ '@/views/advert-space/index.vue'),
         meta: { title: '广告位管理' }
+      },
+      {
+        path: '/course/create',
+        name: 'course-create',
+        component: () => import(/* webpackChunkName: 'course-create' */ '@/views/course/create.vue')
+      },
+      {
+        path: '/course/:courseId/edit',
+        name: 'course-edit',
+        component: () => import(/* webpackChunkName: 'course-edit' */ '@/views/course/edit.vue'),
+        props: true
+      },
+      {
+        path: '/course/:courseId/section',
+        name: 'course-section',
+        component: () => import(/* webpackChunkName: 'course-section' */ '@/views/course/section.vue'),
+        props: true
+      },
+      {
+        path: '/course/:courseId/video',
+        name: 'course-video',
+        component: () => import(/* webpackChunkName: 'course-video' */ '@/views/course/video.vue'),
+        props: true
+      },
+      {
+        path: '/advert-space/create',
+        name: 'advert-space-create',
+        component: () => import(/* webpackChunkName: 'advert-create-create' */ '@/views/advert-space/create.vue')
+      },
+      {
+        path: '/advert-space/:id/edit',
+        name: 'advert-space-edit',
+        component: () => import(/* webpackChunkName: 'advert-create-edit' */ '@/views/advert-space/edit.vue')
       }
 
     ]
